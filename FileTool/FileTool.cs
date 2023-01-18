@@ -11,15 +11,14 @@ public interface IFileTool
 public class FileTool : IFileTool
 {
     private readonly IDirectoryWrapper _directoryWrapper;
-    private readonly IDirectoryInfoWrapper _directoryInfoWrapper;
     private readonly IPathWrapper _pathWrapper;
+    private readonly IFileWrapper _fileWrapper;
 
-    public FileTool(IDirectoryWrapper directoryWrapper, IDirectoryInfoWrapper directoryInfoWrapper, IPathWrapper pathWrapper)
+    public FileTool(IDirectoryWrapper directoryWrapper, IPathWrapper pathWrapper, IFileWrapper fileWrapper)
     {
         _directoryWrapper = directoryWrapper;
-        _directoryInfoWrapper = directoryInfoWrapper;
         _pathWrapper = pathWrapper;
-        ;
+        _fileWrapper = fileWrapper;
     }
 
     public void CreateDirectory(string directory)
@@ -35,7 +34,7 @@ public class FileTool : IFileTool
     public List<MyFileInfo> GetFileInfos(string directory)
     {
         var filesInfos = _directoryWrapper.GetFiles(directory);
-        var fileInfoWrappers = filesInfos.Select(x => new FileInfoWrapper(x.DirectoryName!)).ToList();
+        var fileInfoWrappers = filesInfos.Select(x => new FileInfoWrapper(x.DirectoryName)).ToList();
         return fileInfoWrappers.Select(x => new MyFileInfo
         {
             Directory = x.Directory,
@@ -51,6 +50,6 @@ public class FileTool : IFileTool
 
     public void MoveFile(string file, string targetDirectory)
     {
-        throw new NotImplementedException();
+        _fileWrapper.Move(file, targetDirectory);
     }
 }
