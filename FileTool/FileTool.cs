@@ -37,7 +37,6 @@ public class FileTool : IFileTool
         var fileInfoWrappers = filesInfos.Select(x => new FileInfoWrapper(x.DirectoryName)).ToList();
         return fileInfoWrappers.Select(x => new MyFileInfo
         {
-            Directory = x.Directory,
             DirectoryName = x.DirectoryName,
             Exists = x.Exists,
             Extension = _pathWrapper.GetExtension(x.DirectoryName),
