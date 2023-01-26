@@ -34,7 +34,8 @@ public class FileTool : IFileTool
     public List<MyFileInfo> GetFileInfos(string directory)
     {
         var filesInfos = _directoryWrapper.GetFiles(directory);
-        var fileInfoWrappers = filesInfos.Select(x => new FileInfoWrapper(x.DirectoryName)).ToList();
+        var fileInfoWrappers = filesInfos.Select(fileInfo => new FileInfoWrapper(fileInfo.FullName)).ToList();
+
         return fileInfoWrappers.Select(x => new MyFileInfo
         {
             DirectoryName = x.DirectoryName,
