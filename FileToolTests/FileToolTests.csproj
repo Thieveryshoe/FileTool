@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FileTool\FileTool.csproj" />
+      <ProjectReference Include="..\FileToolProject\FileToolProject.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,17 +1,14 @@
 using FileTool;
-using FileTool = FileTool.FileTool;
 
 namespace FileToolTests;
 
 [TestClass]
 public class FileToolTests
 {
-    // TODO fix namespace issue?  Should just be FileTool
-    private global::FileTool.FileTool _sut;
+    private FileTool.FileTool _sut; // TODO fix namespace issue?  Should just be FileTool
     private DirectoryWrapper _directoryWrapper;
     private PathWrapper _pathWrapper;
     private FileWrapper _fileWrapper;
-    
     
     [TestInitialize]
     public void Setup()
@@ -22,7 +19,6 @@ public class FileToolTests
         _sut = new global::FileTool.FileTool(_directoryWrapper, _pathWrapper, _fileWrapper);
     }
     
-    
     [TestMethod]
     [Ignore]
     public void INTEGRATION_it_should_return_myFileInfos()
@@ -31,6 +27,14 @@ public class FileToolTests
 
         var results = _sut.GetFileInfos(directory);
         
-        Assert.AreEqual(1, results.Count);
+        Assert.AreEqual(2, results.Count);
+        var firstFile = results.First();
+        Assert.AreEqual(true , firstFile.Exists);
+        Assert.AreEqual(".xlsx" , firstFile.Extension);
+        Assert.AreEqual(14415 , firstFile.Length);
+        Assert.AreEqual("2022-2023 Bowling Schedule.xlsx" , firstFile.Name);
+        Assert.AreEqual(@"C:\_Temp" , firstFile.DirectoryName);
+        Assert.AreEqual(false , firstFile.IsReadOnly);
+        Assert.AreEqual(@"C:\_Temp\2022-2023 Bowling Schedule.xlsx", firstFile.FullName);
     }
 }

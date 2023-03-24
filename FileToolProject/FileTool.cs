@@ -37,15 +37,16 @@ public class FileTool : IFileTool
         var fileInfoWrappers = filesInfos.Select(fileInfo => new FileInfoWrapper(fileInfo.FullName)).ToList();
 
         return fileInfoWrappers.Select(x => new MyFileInfo
-        {
-            DirectoryName = x.DirectoryName,
-            Exists = x.Exists,
-            Extension = _pathWrapper.GetExtension(x.DirectoryName),
-            IsReadOnly = x.IsReadOnly,
-            Length = x.Length,
-            Name = x.Name
-        }).ToList();
-
+            {
+                DirectoryName = x.DirectoryName,
+                Exists = x.Exists,
+                Extension = _pathWrapper.GetExtension(x.Name),
+                IsReadOnly = x.IsReadOnly,
+                Length = x.Length,
+                Name = x.Name,
+                FullName = $@"{x.DirectoryName}\{x.Name}"
+            })
+            .ToList();
     }
 
     public void MoveFile(string file, string targetDirectory)

@@ -5,6 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Authors>John Ellison</Authors>
+        <PackageVersion>1.1.0</PackageVersion>
+        <RootNamespace>FileTool</RootNamespace>
     </PropertyGroup>
 
 </Project>

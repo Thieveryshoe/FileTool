@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTool", "FileTool\FileTool.csproj", "{7AB8036F-BD16-42A6-AD22-619907A52F2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileToolProject", "FileToolProject\FileToolProject.csproj", "{7AB8036F-BD16-42A6-AD22-619907A52F2B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileToolTests", "FileToolTests\FileToolTests.csproj", "{38970549-A88A-48A0-9C59-01BBAAF0D7BC}"
 EndProject
